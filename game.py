@@ -27,6 +27,34 @@ class Grid(turtle.Turtle):
         self.penup()
         self.speed(0)
 
+class Path(turtle.Turtle):
+    def __init__(self):
+        turtle.Turtle.__init__(self)
+        self.shape("square")
+        self.color("blue")
+        self.penup()
+        self.speed(0)
+        self.startScreenX = -250
+        self.startScreenY = 250
+        self.stepSize = 24
+
+    def drawBlock(self, x, y):
+        """
+        A function that takes x and y coordinates and draws a blue box in it
+        """
+        self.goto(x,y)
+        self.stamp()
+
+    def drawArray(self, arr):
+        """
+        A function that takes an array of (x,y) coordinates and draws blue boxes in it
+        """
+        for y in range(len(arr)):
+            cord = arr[y]
+            xCord = cord[0]
+            yCord = cord[1]
+            self.drawBlock(xCord, yCord)
+
 
 class Maze():
     def __init__(self):
@@ -41,6 +69,7 @@ class Maze():
         self.startScreenX = -250
         self.startScreenY = 250
         self.startingPos = [0,0]
+        self.stepSize = 24
 
     def setUpMaze(self, border):
         """"
@@ -49,8 +78,8 @@ class Maze():
         for y in range(len(border)):
             for x in range(len(border[y])):
                 square = border[y][x]
-                screen_x = self.startScreenX + (x * 24)               # assign screen_x to screen starting position for x ie -588
-                screen_y = self.startScreenY - (y * 24)                # assign screen_y to screen starting position for y ie  288
+                screen_x = self.startScreenX + (x * self.stepSize)               # assign screen_x to screen starting position for x ie -588
+                screen_y = self.startScreenY - (y * self.stepSize)                # assign screen_y to screen starting position for y ie  288
                 if square == "+":                     # if grid character contains an +
                     self.grid.goto(screen_x, screen_y)        # move turtle to the x and y location and
                     self.grid.stamp()                         # stamp a copy of the turtle (white square) on the screen
@@ -118,14 +147,14 @@ class Character(turtle.Turtle):
         self.goto(startingPos[0], startingPos[1])
         self.stamp()
 
-    def moveTo(self, position):
+    def moveTo(self, x, y):
         """"
-        A function that takes the position you want to move
-        the turtle to as an array in the form [x,y]
+        A function that moves the turtle to the x,y coordinates
         """
         self.clear()
-        self.goto(position[0], position[1])
+        self.goto(x, y)
         self.stamp()
+        time.sleep(0.2)
 
     def getCurrentX(self):
         """"
