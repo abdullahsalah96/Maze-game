@@ -1,4 +1,4 @@
-from game import Maze, Character, Path
+from game import Maze, Character, Path, blockSize
 import time
 
 grid = [
@@ -45,7 +45,6 @@ coins = maze.getCoins()
 
 path = Path()
 
-stepSize = 24
 
 def checkLeft(x,y,angle):
     if angle != 180:
@@ -53,15 +52,15 @@ def checkLeft(x,y,angle):
     if(x,y) in finish:
         maze.endProgram()
 
-    if (x , y - 24) not in wall:
-        path.drawBlock(x,y-24)
+    if (x , y - blockSize) not in wall:
+        path.drawBlock(x,y-blockSize)
         character.rotateLeft()
         character.moveForward()
-    elif (x-24, y) not in wall:
-        path.drawBlock(x - 24, y)
+    elif (x-blockSize, y) not in wall:
+        path.drawBlock(x - blockSize, y)
         character.moveForward()
-    elif (x, y+24) not in wall:
-        path.drawBlock(x, y + 24)
+    elif (x, y+blockSize) not in wall:
+        path.drawBlock(x, y + blockSize)
         character.rotateRight()
         character.moveForward()
     else:
@@ -75,15 +74,15 @@ def checkRight(x,y,angle):
     if (x, y) in finish:
         maze.endProgram()
 
-    if (x , y + 24) not in wall:
-        path.drawBlock(x,y+24)
+    if (x , y + blockSize) not in wall:
+        path.drawBlock(x,y+blockSize)
         character.rotateLeft()
         character.moveForward()
-    elif (x+24, y) not in wall:
-        path.drawBlock(x + 24, y)
+    elif (x+blockSize, y) not in wall:
+        path.drawBlock(x + blockSize, y)
         character.moveForward()
-    elif (x, y-24) not in wall:
-        path.drawBlock(x, y - 24)
+    elif (x, y-blockSize) not in wall:
+        path.drawBlock(x, y - blockSize)
         character.rotateRight()
         character.moveForward()
     else:
@@ -95,20 +94,18 @@ def checkUp(x,y,angle):
     if angle != 90:
         return
 
-    print("HEREEEE")
-
     if (x, y) in finish:
         maze.endProgram()
 
-    if (x -24, y ) not in wall:
-        path.drawBlock(x-24,y)
+    if (x -blockSize, y ) not in wall:
+        path.drawBlock(x-blockSize,y)
         character.rotateLeft()
         character.moveForward()
-    elif (x, y+24) not in wall:
-        path.drawBlock(x , y+24)
+    elif (x, y+blockSize) not in wall:
+        path.drawBlock(x , y+blockSize)
         character.moveForward()
-    elif (x+24, y) not in wall:
-        path.drawBlock(x+24, y)
+    elif (x+blockSize, y) not in wall:
+        path.drawBlock(x+blockSize, y)
         character.rotateRight()
         character.moveForward()
     else:
@@ -123,15 +120,15 @@ def checkDown(x,y,angle):
     if (x, y) in finish:
         maze.endProgram()
 
-    if (x +24, y ) not in wall:
-        path.drawBlock(x+24,y)
+    if (x +blockSize, y ) not in wall:
+        path.drawBlock(x+blockSize,y)
         character.rotateLeft()
         character.moveForward()
-    elif (x, y-24) not in wall:
-        path.drawBlock(x , y-24)
+    elif (x, y-blockSize) not in wall:
+        path.drawBlock(x , y-blockSize)
         character.moveForward()
-    elif (x-24, y) not in wall:
-        path.drawBlock(x-24, y )
+    elif (x-blockSize, y) not in wall:
+        path.drawBlock(x-blockSize, y )
         character.rotateRight()
         character.moveForward()
     else:

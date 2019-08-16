@@ -3,6 +3,8 @@ import time
 import sys
 import collections
 
+blockSize = 24
+
 class Coin(turtle.Turtle):
     def __init__(self):
         turtle.Turtle.__init__(self)
