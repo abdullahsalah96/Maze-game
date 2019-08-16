@@ -140,11 +140,11 @@ def checkDown(x,y,angle):
 
 while(True):
     """
-    * You have the coordinates of the wall stored in "wall" list in the form of a tuple (x,y)
+    * You have the coordinates of the walls stored in "wall" list in the form of tuples [(x,y), (i,j)] -- list of tuples
 
-    * You have the coordinates of the end point stored in "finish" list in the form of [x,y]
+    * You have the coordinates of the end point stored in "finish" tuple in the form of (x,y)
 
-    * You have the coordinates of the coins stored in "coins" list in the form of a tuple (x,y)
+    * You have the coordinates of the coins stored in "coins" list in the form of tuples [(x,y), (i,j)] -- list of tuples
 
     * At each itteration you get the following:
         - X coordinate of the character stored in "currentX" variable
@@ -208,6 +208,7 @@ while(True):
     currentY = character.getCurrentY()
     angle = character.getAngle()
     checkDown(currentX, currentY, angle)
+
 
     ###################################################################
 

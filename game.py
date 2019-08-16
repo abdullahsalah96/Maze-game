@@ -71,7 +71,7 @@ class Maze():
         self.end = End()
         self.coin = Coin()
         self.wall = []
-        self.finish = []
+        self.finish = (0,0)
         self.coins = []
         self.startScreenX = -250
         self.startScreenY = 250
@@ -94,7 +94,7 @@ class Maze():
                 elif square == "e":                     # if grid character contains an e
                     self.end.goto(screen_x, screen_y)         # move turtle to the x and y location and
                     self.end.stamp()                          # stamp a copy of the turtle (green square) on the screen
-                    self.finish.append((screen_x, screen_y))  # add coordinate to finish list
+                    self.finish = (screen_x, screen_y)  # add coordinate to finish list
                 elif square == "s":                     # if grid character contains an s
                     self.startingPos[0] = screen_x         # edit the values of the starting position
                     self.startingPos[1] = screen_y
@@ -178,12 +178,14 @@ class Character(turtle.Turtle):
         return self.heading()
 
     def rotateRight(self):
+        self.clear()
         self.right(90)
 
     def rotateLeft(self):
+        self.clear()
         self.left(90)
 
     def moveForward(self):
         self.clear()
         self.forward(24)
-        time.sleep(0.2)
+        time.sleep(0.1)
