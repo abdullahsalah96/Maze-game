@@ -80,6 +80,7 @@ while(True):
                                 |
                               y -24
     """
+    
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
 
