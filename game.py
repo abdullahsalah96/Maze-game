@@ -10,6 +10,10 @@ class Coin(turtle.Turtle):
         self.color("yellow")
         self.penup()
         self.speed(0)
+        self.startScreenX = -250
+        self.startScreenY = 250
+        self.goto(self.startScreenX-150,self.startScreenY)
+
 
 class End(turtle.Turtle):
     def __init__(self):
