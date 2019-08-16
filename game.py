@@ -79,8 +79,8 @@ class Maze():
         for y in range(len(border)):
             for x in range(len(border[y])):
                 square = border[y][x]
-                screen_x = self.startScreenX + (x * self.stepSize)               # assign screen_x to screen starting position for x ie -588
-                screen_y = self.startScreenY - (y * self.stepSize)                # assign screen_y to screen starting position for y ie  288
+                screen_x = self.startScreenX + (x * self.stepSize)
+                screen_y = self.startScreenY - (y * self.stepSize)
                 if square == "+":                     # if grid character contains an +
                     self.grid.goto(screen_x, screen_y)        # move turtle to the x and y location and
                     self.grid.stamp()                         # stamp a copy of the turtle (white square) on the screen
@@ -90,13 +90,13 @@ class Maze():
                     self.end.stamp()                          # stamp a copy of the turtle (green square) on the screen
                     self.finish.append((screen_x, screen_y))  # add coordinate to finish list
 
-                elif square == "s":
-                    self.startingPos[0] = screen_x
+                elif square == "s":                     # if grid character contains an s
+                    self.startingPos[0] = screen_x         # edit the values of the starting position
                     self.startingPos[1] = screen_y
 
-                elif square == "x":                     # if the grid character contains an s
+                elif square == "x":                     # if the grid character contains an x
                     self.coin.goto(screen_x, screen_y)  # move turtle to the x and y location and
-                    self.coin.stamp()  # stamp a copy of the turtle (white square) on the screen
+                    self.coin.stamp()  # stamp a copy of the turtle (yellow square) on the screen
 
 
     def getWall(self):
