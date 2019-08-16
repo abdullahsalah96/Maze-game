@@ -27,6 +27,10 @@ import time
 with open("input.txt", "r") as file:
     grid = [[str(x) for x in line] for line in file]
 
+
+"""
+DONOT DELETE OR EDIT THE FOLLOWING LINES
+"""
 maze = Maze()
 maze.setUpMaze(grid)
 startingPos = maze.getStartingPosition()
@@ -39,21 +43,23 @@ finish = maze.getFinish()
 
 path = Path()
 
-counter = 0
 stepSize = 24
-list = []
+
 
 while(True):
     """
     * You have the coordinates of the wall stored in "wall" list in the form of a tuple (x,y)
 
-    * You have the coordinates of the finish point stored in "finish" list in the form of [x,y]
+    * You have the coordinates of the end point stored in "finish" list in the form of [x,y]
 
     * At each itteration you get the following:
         - X coordinate of the character stored in currentX variable
         - Y coordinate of the character stored in currentY variable
 
     * To move a character to a certain point write character.moveTo(x,y)
+
+    * Each step is of size 24 to the left, right, up or down, i.e.
+        - if you want to move to the left you will write character.moveTo(x+24, y)
 
     * To draw the path you can use either of the following functions:
         - path.drawBlock(x,y) to draw a box on x,y coordinates
@@ -62,6 +68,17 @@ while(True):
                 array = [(10,20), (5, 30)]
                 path.drawArray(array) #this will draw two blue boxes one at(10,20) and the other at (5,30)
 
+
+                               y+24
+                                |
+                                |
+                                |
+            x-24   _____________|_____________ x+24
+                                |
+                                |
+                                |
+                                |
+                              y -24
     """
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
