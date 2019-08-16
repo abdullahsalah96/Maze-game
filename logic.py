@@ -78,15 +78,17 @@ while(True):
     * The directions are illustrated below
 
                                y+24
+                            angle  = 90
                                 |
                                 |
                                 |
             x-24   _____________|_____________ x+24
-                                |
+         angle = 0              |           angle = 180
                                 |
                                 |
                                 |
                               y -24
+                            angle = 270
     """
 
     currentX = character.getCurrentX()
