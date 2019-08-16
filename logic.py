@@ -102,12 +102,9 @@ while(True):
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
     angle = character.getAngle()
-    print("X: " + str(currentX) + "Y: " + str(currentY) + "Angle: " + str(angle))
-
+    print("X: " + str(currentX) + " Y: " + str(currentY) + " Angle: " + str(angle))
     ################## WRITE YOUR CODE BELOW ##########################
-
     break
-
     ###################################################################
 
 

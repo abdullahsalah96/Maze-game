@@ -56,12 +56,11 @@ class Path(turtle.Turtle):
             yCord = cord[1]
             self.drawBlock(xCord, yCord)
 
-
 class Maze():
     def __init__(self):
         self.bg = turtle.Screen()
         self.bg.bgcolor("black")
-        self.bg.setup(700,600)
+        self.bg.setup(750,650)
         self.grid = Grid()
         self.end = End()
         self.coin = Coin()
@@ -153,15 +152,6 @@ class Character(turtle.Turtle):
         self.speed(0)
         self.goto(startingPos[0], startingPos[1])
         self.stamp()
-
-    def moveTo(self, x, y):
-        """"
-        A function that moves the turtle to the x,y coordinates
-        """
-        self.clear()
-        self.goto(x, y)
-        self.stamp()
-        time.sleep(0.2)
 
     def getCurrentX(self):
         """"
