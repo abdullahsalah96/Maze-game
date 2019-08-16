@@ -66,11 +66,11 @@ while(True):
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
 
-    ############# WRITE YOUR CODE BELOW ##########################
+    ################## WRITE YOUR CODE BELOW ##########################
 
 
 
-    ##############################################################
+    ###################################################################
 
     """
     DONOT DELETE THE FOLLOWING LINE
