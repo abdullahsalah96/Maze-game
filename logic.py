@@ -69,6 +69,8 @@ while(True):
                 path.drawArray(array) #this will draw two blue boxes one at(10,20) and the other at (5,30)
 
 
+    * The directions are illustrated below
+    
                                y+24
                                 |
                                 |
@@ -80,7 +82,7 @@ while(True):
                                 |
                               y -24
     """
-    
+
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
 
