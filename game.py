@@ -143,7 +143,6 @@ class Maze():
         self.bg.exitonclick()
         sys.exit()
 
-
 class Character(turtle.Turtle):
     def __init__(self, startingPos):
         turtle.Turtle.__init__(self)
@@ -180,4 +179,15 @@ class Character(turtle.Turtle):
         """
         returns the angle that the character is facing
         """
-        return self.heading
+        return self.heading()
+
+    def rotateRight(self):
+        self.right(90)
+
+    def rotateLeft(self):
+        self.left(90)
+
+    def moveForward(self):
+        self.clear()
+        self.forward(24)
+        time.sleep(0.2)

@@ -61,11 +61,18 @@ while(True):
         - Y coordinate of the character stored in "currentY" variable
         - Current angle of the character stored in "angle" variable
 
-    * To move a character to a certain point write character.moveTo(x,y)
+    * To move the character forward write character.moveForward()
 
-    * Each step is of size 24 to the left, right, up or down, i.e.
-        - if you want to move to the left you will write character.moveTo(x+24, y)
+    * To rotate the character to the right write character.rotateRight()
 
+    * To rotate the character to the left write character.rotateLeft()
+
+    * To update the coordinates after moving write the following lines:
+        -   currentX = character.getCurrentX()
+        -   currentY = character.getCurrentY()
+
+    * To update the angle after rotating write the following line:
+        -   angle = character.getAngle()
 
     * To draw the path you can use either of the following functions:
         - path.drawBlock(x,y) to draw a box on x,y coordinates
@@ -75,33 +82,34 @@ while(True):
                 path.drawArray(array) #this will draw two blue boxes one at(10,20) and the other at (5,30)
 
 
-    * The directions are illustrated below
+    * The angles are illustrated below
 
-                               y+24
+
                             angle  = 90
                                 |
                                 |
                                 |
-            x-24   _____________|_____________ x+24
+                   _____________|_____________
          angle = 0              |           angle = 180
                                 |
                                 |
                                 |
-                              y -24
                             angle = 270
+
+    * To end the game break from the while loop
     """
 
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
     angle = character.getAngle()
+    print("X: " + str(currentX) + "Y: " + str(currentY) + "Angle: " + str(angle))
 
     ################## WRITE YOUR CODE BELOW ##########################
-
-
-
+    break
     ###################################################################
 
-    """
-    DONOT DELETE THE FOLLOWING LINE
-    """
-    maze.endProgram()
+
+"""
+DONOT DELETE THE FOLLOWING LINE
+"""
+maze.endProgram()
