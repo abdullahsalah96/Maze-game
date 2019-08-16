@@ -3,22 +3,22 @@ import time
 
 grid = [
 "++s+++++++++++++++++",
-"++ ++++ +++++++ ++++",
-"++ ++++ +++++++ ++++",
-"++          +++ ++++",
-"+++ +++++++ +++    +",
-"+++ +++++++ ++++++++",
-"+++ +++++++ ++++++++",
-"+++ +++++++      +++",
-"+++  ++++++ ++++ +++",
-"+++ +++++++ ++++++++",
-"+   +++++++ ++++++++",
-"+++ +++     ++++++++",
-"+++ +++ ++++++++++++",
-"+++ +++     ++++++++",
-"+++ +++++++ ++++++++",
-"+++ +++          +++",
-"+++ +++ ++++++++++++",
+"++ +++++++++++++++++",
+"++ +++++++++++++++++",
+"++          ++++++++",
+"+++++++++++ ++++++++",
+"+++++++++++ ++++++++",
+"+++++++++++ ++++++++",
+"+++++++++++ ++++++++",
+"+++++++++++ ++++++++",
+"+++++++++++ ++++++++",
+"+++++++++++ ++++++++",
+"+++++++     ++++++++",
+"+++++++ ++++++++++++",
+"+++++++     ++++++++",
+"+++++++++++ ++++++++",
+"+++++++     ++++++++",
+"+++++++ ++++++++++++",
 "+       ++++++++++++",
 "+ ++++++++++++++++++",
 "+e++++++++++++++++++",
@@ -46,6 +46,99 @@ coins = maze.getCoins()
 path = Path()
 
 stepSize = 24
+
+def checkLeft(x,y,angle):
+    if angle != 180:
+        return
+    if(x,y) in finish:
+        maze.endProgram()
+
+    if (x , y - 24) not in wall:
+        path.drawBlock(x,y-24)
+        character.rotateLeft()
+        character.moveForward()
+    elif (x-24, y) not in wall:
+        path.drawBlock(x - 24, y)
+        character.moveForward()
+    elif (x, y+24) not in wall:
+        path.drawBlock(x, y + 24)
+        character.rotateRight()
+        character.moveForward()
+    else:
+        character.rotateRight()
+        character.rotateRight()
+
+def checkRight(x,y,angle):
+    if angle != 0:
+        return
+
+    if (x, y) in finish:
+        maze.endProgram()
+
+    if (x , y + 24) not in wall:
+        path.drawBlock(x,y+24)
+        character.rotateLeft()
+        character.moveForward()
+    elif (x+24, y) not in wall:
+        path.drawBlock(x + 24, y)
+        character.moveForward()
+    elif (x, y-24) not in wall:
+        path.drawBlock(x, y - 24)
+        character.rotateRight()
+        character.moveForward()
+    else:
+        character.rotateRight()
+        character.rotateRight()
+
+
+def checkUp(x,y,angle):
+    if angle != 90:
+        return
+
+    print("HEREEEE")
+
+    if (x, y) in finish:
+        maze.endProgram()
+
+    if (x -24, y ) not in wall:
+        path.drawBlock(x-24,y)
+        character.rotateLeft()
+        character.moveForward()
+    elif (x, y+24) not in wall:
+        path.drawBlock(x , y+24)
+        character.moveForward()
+    elif (x+24, y) not in wall:
+        path.drawBlock(x+24, y)
+        character.rotateRight()
+        character.moveForward()
+    else:
+        character.rotateRight()
+        character.rotateRight()
+
+
+def checkDown(x,y,angle):
+    if  angle !=  270:
+        return
+
+    if (x, y) in finish:
+        maze.endProgram()
+
+    if (x +24, y ) not in wall:
+        path.drawBlock(x+24,y)
+        character.rotateLeft()
+        character.moveForward()
+    elif (x, y-24) not in wall:
+        path.drawBlock(x , y-24)
+        character.moveForward()
+    elif (x-24, y) not in wall:
+        path.drawBlock(x-24, y )
+        character.rotateRight()
+        character.moveForward()
+    else:
+        character.rotateRight()
+        character.rotateRight()
+
+
 
 
 while(True):
@@ -90,7 +183,7 @@ while(True):
                                 |
                                 |
                    _____________|_____________
-         angle = 0              |           angle = 180
+         angle = 180            |           angle = 0
                                 |
                                 |
                                 |
@@ -104,7 +197,21 @@ while(True):
     angle = character.getAngle()
     print("X: " + str(currentX) + " Y: " + str(currentY) + " Angle: " + str(angle))
     ################## WRITE YOUR CODE BELOW ##########################
-    break
+
+    checkLeft(currentX,currentY,angle)
+    currentX = character.getCurrentX()
+    currentY = character.getCurrentY()
+    angle = character.getAngle()
+    checkRight(currentX, currentY, angle)
+    currentX = character.getCurrentX()
+    currentY = character.getCurrentY()
+    angle = character.getAngle()
+    checkUp(currentX, currentY, angle)
+    currentX = character.getCurrentX()
+    currentY = character.getCurrentY()
+    angle = character.getAngle()
+    checkDown(currentX, currentY, angle)
+
     ###################################################################
 
 
