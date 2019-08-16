@@ -41,6 +41,8 @@ wall = maze.getWall()
 
 finish = maze.getFinish()
 
+coins = maze.getCoins()
+
 path = Path()
 
 stepSize = 24
@@ -52,14 +54,18 @@ while(True):
 
     * You have the coordinates of the end point stored in "finish" list in the form of [x,y]
 
+    * You have the coordinates of the coins stored in "coins" list in the form of a tuple (x,y)
+
     * At each itteration you get the following:
-        - X coordinate of the character stored in currentX variable
-        - Y coordinate of the character stored in currentY variable
+        - X coordinate of the character stored in "currentX" variable
+        - Y coordinate of the character stored in "currentY" variable
+        - Current angle of the character stored in "angle" variable
 
     * To move a character to a certain point write character.moveTo(x,y)
 
     * Each step is of size 24 to the left, right, up or down, i.e.
         - if you want to move to the left you will write character.moveTo(x+24, y)
+
 
     * To draw the path you can use either of the following functions:
         - path.drawBlock(x,y) to draw a box on x,y coordinates
@@ -85,6 +91,7 @@ while(True):
 
     currentX = character.getCurrentX()
     currentY = character.getCurrentY()
+    angle = character.getAngle()
 
     ################## WRITE YOUR CODE BELOW ##########################
 

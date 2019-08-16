@@ -67,6 +67,7 @@ class Maze():
         self.coin = Coin()
         self.wall = []
         self.finish = []
+        self.coins = []
         self.startScreenX = -250
         self.startScreenY = 250
         self.startingPos = [0,0]
@@ -89,14 +90,13 @@ class Maze():
                     self.end.goto(screen_x, screen_y)         # move turtle to the x and y location and
                     self.end.stamp()                          # stamp a copy of the turtle (green square) on the screen
                     self.finish.append((screen_x, screen_y))  # add coordinate to finish list
-
                 elif square == "s":                     # if grid character contains an s
                     self.startingPos[0] = screen_x         # edit the values of the starting position
                     self.startingPos[1] = screen_y
-
                 elif square == "x":                     # if the grid character contains an x
                     self.coin.goto(screen_x, screen_y)  # move turtle to the x and y location and
                     self.coin.stamp()  # stamp a copy of the turtle (yellow square) on the screen
+                    self.coins.append((screen_x, screen_y))
 
 
     def getWall(self):
@@ -104,6 +104,12 @@ class Maze():
         returns an array that includes the coordinates of each tile in the wall
         """
         return self.wall
+
+    def getCoins(self):
+        """"
+        returns an array that includes the coordinates of each coin in the game
+        """
+        return self.coins
 
     def getstartScreenX(self):
         """"
@@ -128,6 +134,7 @@ class Maze():
         returns an array that contains the starting position
         """
         return self.startingPos
+
 
     def endProgram(self):
         """
@@ -168,3 +175,9 @@ class Character(turtle.Turtle):
         returns the current Y coordinate of the turtle
         """
         return(round(self.ycor(),0))
+
+    def getAngle(self):
+        """
+        returns the angle that the character is facing
+        """
+        return self.heading
