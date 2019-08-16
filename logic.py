@@ -70,7 +70,7 @@ while(True):
 
 
     * The directions are illustrated below
-    
+
                                y+24
                                 |
                                 |

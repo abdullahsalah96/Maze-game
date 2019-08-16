@@ -37,6 +37,7 @@ class Path(turtle.Turtle):
         self.startScreenX = -250
         self.startScreenY = 250
         self.stepSize = 24
+        self.goto(self.startScreenX-150,self.startScreenY)
 
     def drawBlock(self, x, y):
         """
